@@ -1,7 +1,9 @@
 
 body {
+    min-height: 100vh;
     margin: 0;
-    font-family: Arial;
+    font-family: 'mukta',sans-serif;
+    background-color: azure;
 }
 h1{
     text-align: center;
@@ -42,17 +44,26 @@ h1{
     display: flex;
     transform: scale(1.1);
     transition: all .3s;
+    box-shadow: 10px 10px 15px rgb(13, 13, 13);
 }
 .post:hover .post-overlay{
-            display: flex;
+     display: flex;
+     justify-content: center;
 }
 
-.post-like,
-.post-comments {
+.contact-info,
+.address {
     width: 80px;
     margin: 5px;
     font-weight: bold;
     text-align: center;
-    display: inline-block;
+    display: block;
+    color: azure;
 }
-    
+
+footer {
+padding: 2em;
+position:absolute;
+left: 43%;
+bottom: 10px;
+}
