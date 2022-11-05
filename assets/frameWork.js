@@ -20,7 +20,9 @@ After document load, run function(findLocalRestaurants) to search through Google
     add function for API 2 , currently options are play random sound upon picture clicks 
         --> Module 5 ex 03 and module 04 ex 12 and module 4 ex 19
 
+add local storage for places visited and liked
 
+add popout form for user input, this is going for radius input and keyword
 
 
 
@@ -77,8 +79,8 @@ function LocalSearch(latInput,lngInput) {
   
     var request = {
       location: pyrmont,
-      radius: '2500',
-      keyword: 'Restaurant'
+      radius: '2500', // make this an input field
+      keyword: 'Restaurant' // make this an input field
     };
   
     service = new google.maps.places.PlacesService(map);
@@ -112,7 +114,7 @@ function LocalSearch(latInput,lngInput) {
     
     var requestPic = {
         placeId: arrayPlaceID,
-        fields: ['photos'] //,'name', 'rating', 'formatted_phone_number'
+        fields: ['photos','name', 'rating', 'formatted_phone_number']
       };
       service = new google.maps.places.PlacesService(map);
      service.getDetails(requestPic, callback);
