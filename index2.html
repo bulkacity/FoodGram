@@ -13,7 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-
+  <div id="map" type="hidden"></div>
     <header>
         <h1>
            <i class="fa fa-camera" style="color: #0ca678;"></i> FoodGram
@@ -21,9 +21,12 @@
         </h1>
     </header>
     <section class="post-list">
-        <a href="" class="post">
+        
+        <a href="" target="_blank" class="post">
           <figure class="post-image">
-            <img src="https://picsum.photos/300?image=60" alt="">
+
+            <img src="https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sAcYSjRillNalZSS42mxO-Mupa8EPZs0Efiua6LyPG-ieFsq7rL0Hq1MT8FQgLSD1sehZxnFThzWQH44-4BJhoZo0mTm6aFwTfvx4ncotkoqfnuoTDTYQSVnNltmiQvWymhb9HrOmCN6JVP-O5yND_aMy16NlcTg3G02OSbYv7uGeInGRxZIc&3u3024&5m1&2e1&callback=none&key=AIzaSyDiOuRALJwPFL--aSqT5n1-u16cNYLP114&token=124978" alt="">
+
           </figure>
           <span class="post-overlay">
             <p>
@@ -32,8 +35,9 @@
             </p>
           </span>
         </a>
+      
         
-        <a href="" class="post">
+        <a href="" target="_blank" class="post">
           <figure class="post-image">
             <img src="https://picsum.photos/300?image=23" alt="">
           </figure>
@@ -45,7 +49,7 @@
           </span>
         </a>
         
-         <a href="" class="post">
+         <a href="" target="_blank" class="post">
           <figure class="post-image">
             <img src="https://picsum.photos/300?image=234" alt="">
           </figure>
@@ -57,7 +61,7 @@
           </span>
         </a>
         
-        <a href="" class="post">
+        <a href="" target="_blank" class="post">
           <figure class="post-image">
             <img src="https://picsum.photos/300?image=614" alt="">
           </figure>
@@ -69,7 +73,7 @@
           </span>
         </a>
         
-        <a href="" class="post">
+        <a href="" target="_blank" class="post">
           <figure class="post-image">
             <img src="https://picsum.photos/300?image=559" alt="">
           </figure>
@@ -82,7 +86,7 @@
           </span>
         </a>
         
-         <a href="" class="post">
+         <a href="" target="_blank" class="post">
           <figure class="post-image">
             <img src="https://picsum.photos/300?image=321" alt="">
           </figure>
@@ -94,7 +98,7 @@
           </span>
         </a>
         
-        <a href="" class="post">
+        <a href="" target="_blank" class="post">
           <figure class="post-image">
             <img src="https://picsum.photos/300?image=280" alt="">
           </figure>
@@ -106,7 +110,7 @@
           </span>
         </a>
         
-        <a href="" class="post">
+        <a href="" target="_blank" class="post">
           <figure class="post-image">
             <img src="https://picsum.photos/300?image=555" alt="">
           </figure>
@@ -118,7 +122,7 @@
           </span>
         </a>
         
-         <a href="" class="post">
+         <a href="" target="_blank" class="post">
           <figure class="post-image">
             <img src="https://picsum.photos/300?image=444" alt="">
           </figure>
@@ -131,6 +135,11 @@
         </a>
         
       </section>
-      
-</body>
+
+
+  <script src="./assets/frameWork.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiOuRALJwPFL--aSqT5n1-u16cNYLP114&libraries=places&callback=initMap">
+  </script>
+    </body>
+
 </html>
