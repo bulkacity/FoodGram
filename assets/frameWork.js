@@ -39,7 +39,7 @@ var imgLinks = document.querySelectorAll('img');
 var placeNumber = document.querySelectorAll(".contact-info");
 var placeAddy = document.querySelectorAll(".address");
 var placeName = document.querySelectorAll(".place-name");
-var placeWeb= document.querySelectorAll(".website");
+var placeWeb= document.querySelectorAll('a');
 console.log(placeNumber.length);
 console.log (imgLinks.length);
 counterPic=0;
@@ -126,6 +126,8 @@ function LocalSearch(latInput,lngInput) {
       // goal here is to input a function that will take the (place[i].photo[1].getUrl and add), which is the result of the photo attributes and then generate a class object into the html 
       
 function callback(place, status) {
+  console.log('the place is'+place)
+  console.log('the status is'+status)
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     
     let name=place.name;
@@ -150,7 +152,10 @@ function callback(place, status) {
     placeName[counterPic].textContent = name;
     placeNumber[counterPic].textContent = locationNumber;
     placeAddy[counterPic].textContent = address;
-    placeWeb[counterPic].textContent= websiteDomain;
+    if (websiteDomain !== undefined){
+    placeWeb[counterPic].setAttribute('href', websiteDomain);  
+    placeWeb[counterPic].setAttribute('target', '_blank');
+    }
     counterPic++;
   }
 }else{ 

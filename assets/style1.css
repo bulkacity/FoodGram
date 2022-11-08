@@ -11,7 +11,7 @@ h1{
 
 .post-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(100px, 293px));
+    grid-template-columns: repeat(3, minmax(20%, 20%));
     justify-content: center;
     grid-gap: 28px;
 }
@@ -23,10 +23,12 @@ h1{
 .post-image {
     margin: 0;
 }
+
 .post-image img {
     width: 100%;
     vertical-align: top;
 }
+
 .post-overlay {
     background: rgba(0,0,0, .4);
     position: absolute;
@@ -51,6 +53,14 @@ h1{
      justify-content: center;
 }
 
+.place-name {
+     width: 9px;
+    margin: 5px;
+    font-weight: bolder;
+    text-align: center;
+    display: block;
+    color: azure;
+}
 .contact-info,
 .address {
     width: 80px;
