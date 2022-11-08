@@ -36,6 +36,10 @@ let service;
 let infoPane;
 var placeIdExtracted=[];
 var imgLinks = document.querySelectorAll('img');
+var placeNumber = document.querySelectorAll(".contact-info");
+var placeAddy = document.querySelectorAll(".address");
+var placeName = document.querySelectorAll(".place-name");
+console.log(placeNumber.length);
 console.log (imgLinks.length);
 counterPic=0;
 function initMap(){
@@ -93,7 +97,7 @@ function LocalSearch(latInput,lngInput) {
     console.log(results[1].place_id)
     console.log(results)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
+      for (var i = 2; i < results.length; i++) {
         placeIdExtracted[i] = results[i].place_id;
         
       }
@@ -101,8 +105,8 @@ function LocalSearch(latInput,lngInput) {
     }
     console.log("The IDs are here" + placeIdExtracted + "the")
     
-
-        for( var i=0;i<=placeIdExtracted.length;i++) {
+    console.log(placeIdExtracted.length)
+        for( var i=2;i<=placeIdExtracted.length;i++) {
             searchPicWithID(placeIdExtracted[i])
             console.log("testing"+[i]);
 
@@ -114,7 +118,7 @@ function LocalSearch(latInput,lngInput) {
     
     var requestPic = {
         placeId: arrayPlaceID,
-        fields: ['photos','name', 'rating', 'formatted_phone_number']
+        fields: ['photos','name', 'rating', 'formatted_phone_number','formatted_address']
       };
       service = new google.maps.places.PlacesService(map);
      service.getDetails(requestPic, callback);
@@ -123,19 +127,35 @@ function LocalSearch(latInput,lngInput) {
 function callback(place, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     
+    let name=place.name;
+    console.log("The place name is :" + name);
     console.log(place);
+    let address=place.formatted_address;
+    console.log(address);
+    let locationNumber=place.formatted_phone_number;
+    console.log(locationNumber);
     let firstPhoto = place.photos[1];
     let photo=document.createElement('img');
     photo.classList.add('hero');
     photo.src = firstPhoto.getUrl();
     console.log("Selecting image source"+ photo.src);
+    
+    // the following if ensures that you dont attempt to put more photo than locations
+
     if(!counterPic<imgLinks.length){
-    imgLinks[counterPic].setAttribute("src",photo.src)
+    imgLinks[counterPic].setAttribute("src",photo.src);
+    console.log(placeAddy[counterPic]);
+    placeName[counterPic].textContent = name;
+    placeNumber[counterPic].textContent = locationNumber;
+    placeAddy[counterPic].textContent = address;
     counterPic++;
   }
+}else{ 
+  // in the case the location is closed
+  console.log("Didnt find info:")
+             
 }
-   
-               
-}
+  }
+
   }
 //   service.getDetails(request, callback);
