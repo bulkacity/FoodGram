@@ -39,6 +39,7 @@ var imgLinks = document.querySelectorAll('img');
 var placeNumber = document.querySelectorAll(".contact-info");
 var placeAddy = document.querySelectorAll(".address");
 var placeName = document.querySelectorAll(".place-name");
+var placeWeb= document.querySelectorAll(".website");
 console.log(placeNumber.length);
 console.log (imgLinks.length);
 counterPic=0;
@@ -118,18 +119,19 @@ function LocalSearch(latInput,lngInput) {
     
     var requestPic = {
         placeId: arrayPlaceID,
-        fields: ['photos','name', 'rating', 'formatted_phone_number','formatted_address']
+        fields: ['photos','name', 'formatted_phone_number','formatted_address','website']
       };
       service = new google.maps.places.PlacesService(map);
      service.getDetails(requestPic, callback);
       // goal here is to input a function that will take the (place[i].photo[1].getUrl and add), which is the result of the photo attributes and then generate a class object into the html 
       
 function callback(place, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
     
     let name=place.name;
     console.log("The place name is :" + name);
-    console.log(place);
+    let websiteDomain=place.website;
+    console.log(websiteDomain);
     let address=place.formatted_address;
     console.log(address);
     let locationNumber=place.formatted_phone_number;
@@ -148,11 +150,12 @@ function callback(place, status) {
     placeName[counterPic].textContent = name;
     placeNumber[counterPic].textContent = locationNumber;
     placeAddy[counterPic].textContent = address;
+    placeWeb[counterPic].textContent= websiteDomain;
     counterPic++;
   }
 }else{ 
   // in the case the location is closed
-  console.log("Didnt find info:")
+  console.log("Didnt find info:"+place)
              
 }
   }
