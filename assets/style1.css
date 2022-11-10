@@ -20,14 +20,6 @@ h1{
     position: relative;
     display: block;
 }
-.post-image {
-    margin: 0;
-}
-
-.post-image img {
-    width: 100%;
-    vertical-align: top;
-}
 
 .post-overlay {
     background: rgba(0,0,0, .4);
@@ -55,7 +47,8 @@ h1{
 
 .place-name {
      width: 9px;
-    margin: 5px;
+margin-bottom: 42%;
+margin-left: 18%;
     font-weight: bolder;
     text-align: center;
     display: block;
@@ -64,10 +57,9 @@ h1{
 .contact-info,
 .address {
     width: 80px;
-    margin: 5px;
+    margin: 2px;
     font-weight: bold;
     text-align: center;
-    display: block;
     color: azure;
 }
 
