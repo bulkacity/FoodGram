@@ -167,3 +167,33 @@ function callback(place, status) {
 
   }
 //   service.getDetails(request, callback);
+var buttons=document.querySelectorAll('button');
+var bussin=[];
+var placeidName=[];
+console.log(buttons);
+console.log(placeNumber.length);
+console.log (imgLinks.length);
+counterPic=0;
+
+
+
+for(var i=0; i<buttons.length; i++){
+  bussin.push("bussin"+i)
+  placeidName.push("pl"+i)
+  buttons[i].addEventListener('click', function(e){
+    let targetID=e.target.id;
+    console.log(targetID);
+    findName(targetID)
+    function findName(targetID){
+      for( var n=0; n<buttons.length; n++){
+        if( targetID === "bussin"+n){
+          console.log("place name" + placeName[n].textContent)
+          return;
+        }
+      }
+    }
+    
+  },false);
+}
+console.log(bussin) ;
+console.log(placeidName);
