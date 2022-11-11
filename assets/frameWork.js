@@ -44,7 +44,7 @@ console.log(placeNumber.length);
 console.log (imgLinks.length);
 counterPic=0;
 function initMap(){
-
+  
     
     bounds = new google.maps.LatLngBounds();
     infoWindow = new google.maps.InfoWindow;
@@ -71,8 +71,10 @@ function initMap(){
     
         }
     
-        
+
 }
+      // the following will load recent bussing results:
+
 
 function LocalSearch(latInput,lngInput) {
     var pyrmont = new google.maps.LatLng(latInput,lngInput);
@@ -91,6 +93,7 @@ function LocalSearch(latInput,lngInput) {
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
    
+
     
   }
   
@@ -166,6 +169,8 @@ function callback(place, status) {
   }
 
   }
+
+  
 //   service.getDetails(request, callback);
 var buttons=document.querySelectorAll('button');
 var bussin=[];
@@ -174,6 +179,7 @@ console.log(buttons);
 console.log(placeNumber.length);
 console.log (imgLinks.length);
 counterPic=0;
+
 
 
 
@@ -188,12 +194,50 @@ for(var i=0; i<buttons.length; i++){
       for( var n=0; n<buttons.length; n++){
         if( targetID === "bussin"+n){
           console.log("place name" + placeName[n].textContent)
+          loadRecentBussin(placeName[n].textContent);
+          // saveToStorage(placeName[n].textContent)
           return;
         }
       }
     }
     
+    function loadRecentBussin(textExtracted) {
+      let recentBussin = JSON.parse(localStorage.getItem("BussinList"));
+      console.log(recentBussin);
+    
+      if (recentBussin) {
+        BussinList = recentBussin;
+        console.log("bussing list created" +BussinList)
+      } else {
+        BussinList = [];
+        console.log(BussinList)
+      }
+      //listCities();
+      saveToStorage(textExtracted)
+    }  
+
+
+    // if not on storage save function
+    function saveToStorage(BussinClick){
+      localStorage.setItem("mostRecent", BussinClick);
+      if(BussinList.includes(BussinClick)===false){
+      BussinList.push(BussinClick);
+      console.log("Storage length is: " + BussinList.length)
+      localStorage.setItem("BussinList", JSON.stringify(BussinList));
+      } else{
+        console.log("Item already on list");
+      }
+    }
+    // end save function
+
+
   },false);
 }
+
+
+
 console.log(bussin) ;
 console.log(placeidName);
+
+
+
