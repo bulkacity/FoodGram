@@ -9,3 +9,20 @@ As a user, I want to see photos of food sourced locally from restaurants based o
 It is done when the user is presented with a text box to enter a zip code
 Then the user is given a feed of photos of food from nearby restaurants 
 Then if a user likes a photo of the food, they can double click, and the location, and contact info of the restaurant will populate.
+
+
+<br>
+### WebPage
+
+![WebPage in use](./assets/FoodGram.gif)
+<br>
+
+## Technologies
+
+* [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [jQuery](https://jquery.com/)
+* [Font Awesome](https://fontawesome.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Google Fonts](https://fonts.google.com/)
