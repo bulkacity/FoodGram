@@ -224,11 +224,20 @@ for(var i=0; i<buttons.length; i++){
       BussinList.push(BussinClick);
       console.log("Storage length is: " + BussinList.length)
       localStorage.setItem("BussinList", JSON.stringify(BussinList));
+      displayList(BussinList);
       } else{
         console.log("Item already on list");
       }
     }
     // end save function
+
+    function displayList(BussinList) {
+      $("#body-list").empty();
+      BussinList.forEach(function(click) {
+    console.log("Length is:" + BussinList.length)
+    $("#body-list").append("<tr><td class='BussinListNames'>" + click + "</td></tr>");
+    })
+  }
 
 
   },false);

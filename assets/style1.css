@@ -47,20 +47,23 @@ h1{
 
 .place-name {
      width: 9px;
-margin-bottom: 42%;
+margin-bottom: 15%;
 margin-left: 18%;
     font-weight: bolder;
     text-align: center;
     display: block;
     color: azure;
+    font-size: 14px
 }
 .contact-info,
 .address {
-    width: 80px;
-    margin: 2px;
+    width: 1px;
+    
     font-weight: bold;
     text-align: center;
     color: azure;
+    font-size: 14px
+    
 }
 
 footer {
@@ -69,3 +72,4 @@ position:absolute;
 left: 43%;
 bottom: 10px;
 }
+
